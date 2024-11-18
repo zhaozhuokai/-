@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>004-Fullscreen Toggole Menu JavaScript</title>
+    <link rel="stylesheet" href="导航页.css">
+    <style>
+        body{
+            margin:0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #f1271158, #f5af19);
+        }
+        .box{
+            width:1200px;
+            margin:auto;
+            padding-top: 80px;
+        }
+        .box>.title{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        .box>.title>.item{
+            background: linear-gradient(to bottom right, #f1271158, #f5af19);
+            height:88px;
+            width: 20%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 28px;
+            box-shadow: 0 0 10px #fff;
+
+        }
+        .box>.title>.item>img{
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            transition: .5s;
+            object-fit: cover;
+        }
+        .box>.title>.item>span{
+            font-size: 18px;
+            color: #fcf7f7;
+            margin-left: 10px;
+            letter-spacing: 5px;
+            transition: .5s;
+            font-weight: bold;
+        }
+        .box>.title>.checked{
+            background:linear-gradient(to bottom right, #f1271158, #f5af19);
+            box-shadow: 0 0 28px #fff;
+        }
+        .box>.title>.checked.span{
+            margin-right: 35px;
+        }
+        .box>.title>.checked.img{
+            transform:scale(1.5);
+        }
+        .content{
+            background-color: rgba(255, 255, 255, 0.5);
+            height:0;
+            padding: 0;
+            overflow: hidden;
+            border-radius: 30px;
+            color:#86042b;
+            opacity: 0;
+            transition: .5s;
+        }
+        .che{
+            opacity: 1;
+            height:600px;
+            padding:20px;
+        }
+        .content>.title{
+            font-size: 20px;
+            
+        }
+        .content>h1{
+            font-size: 50px;
+            margin: 20px 0;
+        }   
+        .content>.body{
+            font-size: 18px;
+            line-height: 2px;
+        }
+        .imgList{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .imgList>img{
+            width: 300px;
+            height: 300px;
+            border-radius: 30px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="toggle-icon" onclick="menuToggle()">
+
+    </div>
+    <div id="menu-overlay">
+        <ul>
+            <!-- href="#" ： 链接当前页面-->
+            <li><a href="首页.html">首页</a></li>
+            <li><a href="导航页.html">青年模范</a></li>
+            <li><a href="时间轴.html">青春岁月</a></li>
+            <li><a href="当打之年.html">当打之年</a></li>
+            <li><a href="#">联系我们</a></li>
+            
+        </ul>
+    </div>
+    <script>
+        function menuToggle() {
+            // 向id="menu-overlay"中的元素的class类列表属性中添加active，使得该元素属于类active
+            var nav = document.getElementById('menu-overlay');
+            nav.classList.toggle('active');
+
+            var toggleIcon = document.getElementById('toggle-icon');
+            toggleIcon.classList.toggle('active');
+        }
+    </script>
+
+    <div class = "box">
+        <div class = "title"> 
+            <div class = "item">
+                <span>毛泽东</span>
+                <img src="https://th.bing.com/th?id=OIP.8qQ8PnjHao5zVtTLUpTojAHaJw&w=217&h=286&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="">
+            </div>
+            <div class = "item">
+                <span>周恩来</span>
+                <img src="https://www.bing.com/th?id=OIP.N-iygrDvHxwMpo91Qg2smwHaKH&w=155&h=200&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="">
+            </div>
+            <div class = "item">
+                <span>夏明翰</span>
+                <img src="https://www.bing.com/th?id=OIP.u_b1DYfh0UZUzavZjaGl5wHaKt&w=120&h=150&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="">
+            </div>
+            <div class = "item">
+                <span>蔡和森</span>
+                <img src="https://th.bing.com/th?id=ODL.c6d31a1818dc9a2acfbc7080b3c4d97d&w=100&h=100&c=12&pcl=faf9f7&o=6&dpr=1.5&pid=23.1" alt="">
+            </div>
+        </div>
+    </div>
+    <div class = "content">
+        <div class = "title">历史人物</div>
+        <h1>毛泽东</h1>
+        <div class = "text">
+            <p>毛泽东，1893 年出生于湖南湘潭韶山冲的一个普通农民家庭。他自幼聪慧好学，在韶山的私塾里接受传统教育，随着年龄增长，毛泽东怀揣着对外面世界的向往和改变国家命运的渴望，离开家乡，踏上了求学之路。来到长沙求学的毛泽东，仿佛置身于一个思想碰撞的大熔炉。当时，辛亥革命的浪潮刚刚席卷全国，民主共和的观念如春风般吹进人们的心田。新文化运动蓬勃兴起，各种新思想、新文化在这里激烈交锋、传播。毛泽东如饥似渴地阅读进步书籍报刊，接触到了西方的民主思想和马克思主义的启蒙理念，眼界大开。
+                五四运动的爆发，像一颗重磅炸弹，彻底点燃了毛泽东心中的革命之火。看到青年学生们为了国家主权、民族尊严走上街头，振臂高呼，毛泽东意识到，只有发动广大人民群众，才能真正改变中国的命运。他毫不犹豫地投身到这场伟大的爱国运动中，组织学生罢课、发动工人罢工，在斗争中深切体会到了人民力量的伟大，也更加坚定了以革命手段拯救中国的决心，从此踏上了为民族解放事业不懈奋斗的革命征程。</p>
+        </div>
+        <div class = "imglist">
+            <img src="https://th.bing.com/th?id=OIP.d2XdryCTYh468DcsO0mb1QHaI1&w=228&h=273&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="">
+            <img src="https://th.bing.com/th?id=OIP.4PHkbGWHi6k-IZIui1lWmQHaK8&w=205&h=303&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="">
+           
+        </div>
+    </div>
+    <div class = "content">
+        <div class = "title"> 历史人物</div>
+        <h1>周恩来</h1>
+        <div class = "text">
+            <p>在日本留学期间，周恩来开始接触到马克思主义，对社会改革和革命有了更深入的思考。回国后，他积极参与五四运动，成为天津学生运动的领袖之一。1921 年，周恩来在法国勤工俭学，期间深入研究马克思主义理论，与其他留学生一起探讨中国革命的道路和方向，并积极组织和参与革命活动，最终确立了共产主义信仰。924 年，周恩来回到中国，参与了黄埔军校的创建工作，担任政治部主任，为培养革命军事人才做出了重要贡献。在第一次国共合作期间，他积极推动国共合作，领导了上海工人第三次武装起义，取得了胜利。在大革命失败后，他与贺龙、叶挺等领导了南昌起义，打响了武装反抗国民党反动派的第一枪，标志着中国共产党独立领导武装斗争的开始。</p>
+        </div>
+        <div class = "imglist">
+            <img src="https://www.bing.com/th?id=OIP.tE3xrTKCmrJmGjeSosjDBQHaKZ&w=155&h=200&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="">
+            
+        </div>
+    </div>
+    <div class = "content">
+        <div class = "title"> 历史人物</div>
+        <h1>夏明翰</h1>
+        <div class = "text">
+            <p>919 年五四运动爆发，年仅 19 岁的夏明翰与进步同学一起投入到这场反帝反封建的爱国斗争中，这使他更加坚定地走上革命道路。在校期间他接触到进步思想，也为他日后的革命行动奠定了基础。1920 年，夏明翰毅然离家出走，彻底与封建家庭决裂，全身心地投入到革命事业中。1921 年冬，在毛泽东的介绍下，夏明翰正式成为一名中国共产党党员。1928 年 3 月 20 日，夏明翰被叛徒出卖后遭国民党特务逮捕，敌人对他进行严刑逼供，但他始终坚贞不屈，最终英勇就义，年仅 28 岁。临刑前，他写下了 “砍头不要紧，只要主义真。杀了夏明翰，还有后来人” 的壮烈诗句，激励了无数后来的革命者。</p>
+        </div>
+        <div class = "imglist">
+            <img src="https://th.bing.com/th/id/OIP.yxNJhiZyQw7jhYubEGgcuQHaEK?w=251&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            <img src="https://th.bing.com/th/id/OIP.AleXJf-xUXt2mxHfyvclQAHaEg?w=239&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+           
+        </div>
+    </div>
+    <div class = "content">
+        <div class = "title"> 历史人物</div>
+        <h1>蔡和森</h1>
+        <div class = "text">
+            <p>受到五四运动的影响，蔡和森积极投身于学生运动，开始探索救国救民的道路。他与毛泽东等志同道合的青年一起组织了新民学会，积极传播新思想、新文化。后来，他前往法国勤工俭学，在艰苦的环境中深入学习马克思主义理论，坚定了自己的革命信念。蔡和森是中国共产党早期的重要理论家、宣传家。他在法国期间，与周恩来等一起组织了中国共产党旅欧支部，积极传播马克思主义。他撰写了大量的文章和信件，系统地阐述了马克思主义的基本原理和中国革命的理论问题，对中国共产党的思想建设和理论建设做出了重要贡献。</p>
+        </div>
+        <div class = "imglist">
+            <img src="https://th.bing.com/th/id/OIP.T1JrX3G10UxVhnSlvVOUzwAAAA?w=126&h=189&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+            <img src="https://th.bing.com/th/id/OIP.HX5uH1Uo-e9pv_y0ryGHGQHaI4?w=175&h=210&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="">
+        </div>
+    </div>
+    <script>
+        let items = document.querySelectorAll('.title>.item');
+        let contents = document.querySelectorAll('.content');
+        for(let i = 0; i < items.length; i++) {
+            items[i].onclick = function() {
+                clear();
+                items[i].classList.add('checked');
+                contents[i].classList.add('che');
+            }
+        }
+        function clear() {
+            for(let i = 0; i < items.length; i++) {
+                items[i].classList.remove('checked');
+                contents[i].classList.remove('che');
+            }
+        }
+       </script>
+    
+</body> 
+</html>
